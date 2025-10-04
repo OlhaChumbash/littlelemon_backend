@@ -43,6 +43,7 @@ header img {
     margin-right: auto;
     max-width: 100%;
     height: auto;
+    /* max-height: 200px; */
 }
 
 
@@ -182,7 +183,7 @@ footer {
 }
 
 footer img {
-    max-width: 50%;
+    max-width: 20%;
 }
 
 footer p {
