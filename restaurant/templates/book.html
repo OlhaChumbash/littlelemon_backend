@@ -30,9 +30,31 @@
     </div>
     <!--End row-->
 
+ {% if message %}
+    <div id="overlay"></div>
+
+    <div id="popup" class="popup">
+      <p>{{ message }}</p>
+      <button class="close-button" onclick="closePopup()">Close</button>
+    </div>
 
 
+   <script>
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+      document.body.classList.add('modal-open');
+    };
+    </script>
+    {% endif %}
 
   </article>
 </section>
 {% endblock %}
+

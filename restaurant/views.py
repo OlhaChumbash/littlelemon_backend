@@ -12,16 +12,23 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+
 def book(request):
     form = BookingForm()
+    message = None
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {'form':form}
+            message = "Booking successful!"
+            form = BookingForm()
+        else:
+            message = "There was an error. Please try again."
+
+    context = {'form': form, 'message': message}
     return render(request, 'book.html', context)
 
-# Add your code here to create new views
+
 def menu(request):
     menu_data = Menu.objects.all()
     main_data = {
